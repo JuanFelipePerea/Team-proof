@@ -8,6 +8,10 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 USERS_DIR = os.path.join(BASE_DIR, "users")
 EXPORT_DIR = os.path.join(BASE_DIR, "exports")
 
+# Verificar la exstencia de la carpeta users
+if not os.path.exists(USERS_DIR):
+    os.makedirs(USERS_DIR)
+
 # Cargar notas de un usuario
 def load_notes(username):
     user_file = os.path.join(USERS_DIR, f"{username}_notes.json")
