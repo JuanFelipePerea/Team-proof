@@ -1,5 +1,3 @@
-#Archivo main.py, principal
-
 import functions
 
 def show_menu():
@@ -14,27 +12,30 @@ def show_menu():
     print("8. Salir")
     
 def main():
+    username = input("\nIngresa tu usuario ya existente o registra uno nuevo: ").strip().lower()
+    print(f"Bienvenido, {username}!\n")
+    
     while True:
         show_menu()
         opcion = input("Selecciona una opcion: ").strip()
         if opcion == "1":
-            functions.create_note()
+            functions.create_note(username)
         elif opcion == "2":
-            functions.show_notes()
+            functions.show_notes(username)
         elif opcion == "3":
-            functions.update_note()
+            functions.update_note(username)
         elif opcion == "4":
-            functions.del_note()
+            functions.del_note(username)
         elif opcion == "5":
-            functions.search_notes()
+            functions.search_notes(username)
         elif opcion == "6":
-            functions.export_notes()
+            functions.export_notes(username)
         elif opcion == "7":
-            functions.import_notes()
+            functions.import_notes(username)
         elif opcion == "8":
             print("Saliendo...")
             break
         else:
             print("Opcion no valida")
-        
+
 main()
